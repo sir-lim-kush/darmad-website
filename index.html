@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darmad Business Park | Airport Parking, Mogadishu</title>
+<meta name="description" content="Secure, convenient parking at Aden Adde International Airport, Mogadishu. $1 for 24 hours or $30 a month, with 24-hour CCTV monitoring, guards and police on site.">
+<meta property="og:title" content="Darmad Business Park | Airport Parking, Mogadishu">
+<meta property="og:description" content="$1 for 24 hours, $30 a month. Over 500 spaces at Aden Adde International Airport.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta name="theme-color" content="#1e110b">
+<link rel="icon" href="assets/brand/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://server.arcgisonline.com" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Hide the page before first paint so the intro never flashes it; main.js removes this when the intro ends.
+  document.documentElement.classList.add('js');
+  if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('intro');
+    var arm = function () { setTimeout(function () { document.documentElement.classList.remove('intro'); }, 40000); };
+    if (!document.hidden) arm();
+    else document.addEventListener('visibilitychange', function onShow() {
+      if (document.hidden) return;
+      document.removeEventListener('visibilitychange', onShow);
+      arm();
+    });
+  }
+</script>
+<script src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js" defer></script>
+<script src="main.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ParkingFacility",
+  "name": "Darmad Business Park",
+  "url": "https://darmad.so",
+  "email": "admin@darmad.so",
+  "priceRange": "$1 per 24 hours, $30 per month",
+  "address": { "@type": "PostalAddress", "streetAddress": "Aden Adde International Airport", "addressLocality": "Mogadishu", "addressCountry": "SO" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 2.0197, "longitude": 45.304 }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#prices" data-i18n="skipLink">Skip to prices</a>
+
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo"><img src="assets/brand/logo-light.png" alt="Darmad Business Park" width="760" height="186"></a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#tour" data-i18n="navTour">Tour</a>
+    <a href="#spaces" data-i18n="navSpaces">Spaces to let</a>
+    <a href="#prices" data-i18n="navPrices">Parking</a>
+    <a href="#how" data-i18n="navHow">How it works</a>
+    <a href="#customers" data-i18n="navCustomers">Businesses</a>
+    <a href="#contact" data-i18n="navContact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang" id="lang" type="button" aria-label="Af Soomaali / English">SO</button>
+    <a class="btn btn-small btn-primary js-directions" href="#contact" target="_blank" rel="noopener" data-i18n="directions">Get directions</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero-stage" id="stage" aria-hidden="true">
+      <canvas id="stars"></canvas>
+      <div class="halo" id="halo"></div>
+      <div id="globe"></div>
+      <video id="introVideo" muted playsinline preload="none" hidden src="assets/video/intro-fallback.mp4"></video>
+    </div>
+    <div class="hero-scrim"></div>
+
+    <div class="intro-ui" id="introUi">
+      <div class="intro-brand">
+        <img src="assets/brand/logo-light.png" alt="" width="760" height="186">
+        <span data-i18n="introTag">Airport Parking · Mogadishu</span>
+      </div>
+      <p class="intro-caption" id="introCaption" aria-live="polite"></p>
+      <div class="intro-progress"><span id="introBar"></span></div>
+      <button class="intro-skip" id="introSkip" type="button" data-i18n="skip">Skip intro</button>
+    </div>
+
+    <div class="hero-content wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span data-i18n="heroEyebrow">Aden Adde International Airport, Mogadishu</span> <span class="opened" data-i18n="openedSince">Open since 10 January 2026</span></p>
+        <h1 data-i18n="heroTitle">Park, work and grow at the airport's front door.</h1>
+        <p class="lead" data-i18n="heroLead">Secure parking for 500+ cars, watched around the clock. Ready-to-open shops and offices beside Mogadishu's busiest gateway.</p>
+        <div class="hero-prices">
+          <a class="price-chip" href="#prices"><strong>$1</strong><span data-i18n="chipDay">per 24 hours</span></a>
+          <a class="price-chip" href="#prices"><strong>$30</strong><span data-i18n="chipMonth">per month</span></a>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary js-directions" href="#contact" target="_blank" rel="noopener" data-i18n="directions">Get directions</a>
+          <a class="btn btn-ghost" href="#spaces" data-i18n="leaseCta">Lease a space</a>
+        </div>
+        <button class="replay" id="replay" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z" fill="currentColor"/></svg>
+          <span data-i18n="replay">Replay the flight in</span>
+        </button>
+      </div>
+
+      <figure class="tour" id="tour">
+        <div class="tour-frame">
+          <video id="tourVideo" controls muted playsinline loop preload="none" poster="assets/img/tour-poster.jpg" src="assets/video/tour.mp4"></video>
+        </div>
+        <figcaption class="tour-bar">
+          <span data-i18n="tourCaption">The Darmad tour, made from real photos of the site today.</span>
+          <button class="sound" id="sound" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z" fill="currentColor"/></svg>
+            <span id="soundLabel" data-i18n="soundOn">Turn sound on</span>
+          </button>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Key facts">
+    <ul class="wrap facts-list">
+      <li><strong>500+</strong><span data-i18n="factSpaces">car spaces</span></li>
+      <li><strong>24/7</strong><span data-i18n="factCctv">CCTV monitoring</span></li>
+      <li><strong data-i18n="factLanesTitle">2 in · 2 out</strong><span data-i18n="factLanes">entry and exit lanes, no queues</span></li>
+      <li><strong data-i18n="factLetTitle">To let</strong><span data-i18n="factLet">shops, offices and showrooms</span></li>
+    </ul>
+  </section>
+
+  <section class="spaces" id="spaces">
+    <div class="wrap spaces-head">
+      <div>
+        <p class="kicker kicker-light" data-i18n="spacesKicker">Spaces to let</p>
+        <h2 data-i18n="spacesTitle">Your next address is already built.</h2>
+      </div>
+      <p class="spaces-lead" data-i18n="spacesLead">Thousands of travellers, crews and drivers pass the Darmad gates every day. Open your doors where they park: modern units with roller-shutter fronts, upper floors for offices, 24-hour security and 500 parking spaces right outside.</p>
+    </div>
+
+    <div class="wrap spaces-split">
+      <figure class="pano">
+        <img loading="lazy" src="assets/img/full-park.jpg" alt="" data-i18n-alt="capPanoOffice" width="960" height="1280">
+        <figcaption class="pano-tag">
+          <span class="pano-n">01</span>
+          <span><strong data-i18n="panoOfficeTitle">The office row and car park</strong><span data-i18n="panoOfficeText">Shops below, offices above, and 500+ spaces at the door. Units available now.</span></span>
+        </figcaption>
+      </figure>
+      <figure class="pano">
+        <img loading="lazy" src="assets/img/full-banks.jpg" alt="" data-i18n-alt="capPanoBanks" width="960" height="1280">
+        <figcaption class="pano-tag">
+          <span class="pano-n">02</span>
+          <span><strong data-i18n="panoBanksTitle">The banking row</strong><span data-i18n="panoBanksText">Beside Beydan, home to Amana, Amal, One Group and more.</span></span>
+        </figcaption>
+      </figure>
+      <figure class="pano pano-wide">
+        <img loading="lazy" src="assets/img/shoprow.jpg" alt="" data-i18n-alt="capShopRow" width="1800" height="630">
+        <figcaption class="pano-tag">
+          <span class="pano-n">03</span>
+          <span><strong data-i18n="shopRowTitle">The full shop row</strong><span data-i18n="shopRowText">Dozens of ground-floor units stretching the length of the car park, ready to fit out.</span></span>
+        </figcaption>
+      </figure>
+      <div class="spaces-uses">
+        <h3 data-i18n="usesTitle">Made for what you do</h3>
+        <ul class="uses">
+          <li><span class="use-i">🏦</span><span data-i18n="useBank">Banks &amp; money transfer</span></li>
+          <li><span class="use-i">🏋️</span><span data-i18n="useGym">Gyms &amp; fitness studios</span></li>
+          <li><span class="use-i">🏨</span><span data-i18n="useHotel">Hotels &amp; guest stays</span></li>
+          <li><span class="use-i">☕</span><span data-i18n="useCafe">Restaurants &amp; cafés</span></li>
+          <li><span class="use-i">💼</span><span data-i18n="useOffice">Offices &amp; head offices</span></li>
+          <li><span class="use-i">🛍️</span><span data-i18n="useRetail">Shops &amp; showrooms</span></li>
+          <li><span class="use-i">💊</span><span data-i18n="useClinic">Clinics &amp; pharmacies</span></li>
+          <li><span class="use-i">✈️</span><span data-i18n="useTravel">Travel &amp; cargo agents</span></li>
+        </ul>
+        <ul class="why">
+          <li data-i18n="why1">Steps from Aden Adde International Airport</li>
+          <li data-i18n="why2">Guards, police and CCTV around the clock</li>
+          <li data-i18n="why3">500+ parking spaces for your customers</li>
+          <li data-i18n="why4">Next door to Hormuud, Amana, Amal and Premier</li>
+        </ul>
+        <!-- Shops, office rental and general enquiries: +252 77 200 0060 (calls and WhatsApp) -->
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/252772000060?text=Hello%20Darmad%2C%20I%20would%20like%20to%20view%20a%20unit." target="_blank" rel="noopener" data-i18n="bookViewing">Book a viewing</a>
+          <a class="btn btn-ghost" href="tel:+252772000060" data-i18n="callUs">Call us</a>
+          <a class="btn btn-ghost" href="mailto:admin@darmad.so?subject=Space%20to%20let%20at%20Darmad" data-i18n="emailUs">Email us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section prices" id="prices">
+    <div class="wrap prices-grid">
+      <figure class="poster">
+        <button class="poster-btn" type="button" id="posterBtn" data-full="assets/img/offer-poster.jpg">
+          <img loading="lazy" src="assets/img/offer-poster.jpg" alt="" data-i18n-alt="capPoster" width="853" height="1280">
+        </button>
+      </figure>
+      <div>
+        <p class="kicker" data-i18n="pricesKicker">Special offer</p>
+        <h2 data-i18n="pricesTitle">Simple prices. Serious security.</h2>
+        <div class="price-cards">
+          <article class="price-card">
+            <h3 data-i18n="singleTitle">Single entry</h3>
+            <p class="price"><strong>$1</strong><span data-i18n="singleUnit">for 24 hours</span></p>
+            <p data-i18n="singleText">Take a card at the barrier, park as long as you need, and pay from your phone before you leave.</p>
+          </article>
+          <article class="price-card price-card-hot">
+            <p class="tag" data-i18n="monthlyTag">Special discount</p>
+            <h3 data-i18n="monthlyTitle">Monthly</h3>
+            <p class="price"><strong>$30</strong><span data-i18n="monthlyUnit">per month</span></p>
+            <p data-i18n="monthlyText">For daily commuters, staff and frequent flyers. Sign up at our office at the entry area, or contact us.</p>
+          </article>
+        </div>
+        <ul class="perks">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4z" fill="currentColor"/></svg>
+            <div><h3 data-i18n="perkGuardTitle">Guards and police officers</h3><p data-i18n="perkGuardText">Trained security guards and police officers keep the site calm and secure.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h12l4-2v10l-4-2H3zm2 9h6v2H5z" fill="currentColor"/></svg>
+            <div><h3 data-i18n="perkCctvTitle">24-hour CCTV monitoring</h3><p data-i18n="perkCctvText">Cameras cover the lanes, the parking rows and the buildings, watched from our control room.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l3.6 2.1-1 1.7L11 13.5V7z" fill="currentColor"/></svg>
+            <div><h3 data-i18n="perkEasyTitle">Convenient</h3><p data-i18n="perkEasyText">Right at the airport, with automated barriers, phone payment and two lanes in and two out.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7v4a3 3 0 0 0 3 3h1v-7H7a5 5 0 0 1 10 0h-2v7h2v1h-5v2h5a2 2 0 0 0 2-2v-1a3 3 0 0 0 2-3v-4a7 7 0 0 0-7-7z" fill="currentColor"/></svg>
+            <div><h3 data-i18n="perkCareTitle">Customer care</h3><p data-i18n="perkCareText">Our parking operators are on hand at the lanes and in the office whenever you need help.</p></div>
+          </li>
+        </ul>
+        <div class="secure-pair">
+          <figure class="cctv">
+            <div class="cctv-screen">
+              <img loading="lazy" src="assets/img/cctv.jpg" alt="" data-i18n-alt="capCctv" width="660" height="372">
+              <span class="cctv-live">LIVE</span>
+            </div>
+            <figcaption data-i18n="cctvCaption">Live camera wall in the Darmad control room.</figcaption>
+          </figure>
+          <figure class="police">
+            <img loading="lazy" src="assets/img/police.jpg" alt="" data-i18n-alt="capPolice" width="1200" height="658">
+            <figcaption data-i18n="policeCaption">Police on patrol at Darmad Business Park.</figcaption>
+          </figure>
+        </div>
+        <!-- Parking prices, monthly plans and parking issues: +252 61 775 7959 (calls and WhatsApp) -->
+        <div class="cta-row parking-cta">
+          <a class="btn btn-whatsapp" href="https://wa.me/252617757959?text=Hello%20Darmad%2C%20I%20have%20a%20question%20about%20parking." target="_blank" rel="noopener" data-i18n="waParking">WhatsApp about parking</a>
+          <a class="btn btn-dark" href="tel:+252617757959" data-i18n="callParking">Call parking: +252 61 775 7959</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section how" id="how">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker" data-i18n="howKicker">How it works</p>
+        <h2 data-i18n="howTitle">In with a card. Out with a tap on your phone.</h2>
+        <p data-i18n="howLead">Two entry lanes and two exit lanes keep traffic moving. Here is how a visit works.</p>
+      </header>
+
+      <div class="journey">
+        <div class="leg">
+          <h3 class="leg-title"><span>1</span><span data-i18n="legIn">Coming in</span></h3>
+          <ol class="steps">
+            <li>
+              <img loading="lazy" src="assets/img/st-in1.jpg" alt="" data-i18n-alt="capEntryDispenser" width="800" height="600">
+              <div><h4 data-i18n="in1Title">Slow down at the entry dispenser</h4><p data-i18n="in1Text">Follow the green Entry Only sign and stop gently beside the machine.</p></div>
+            </li>
+            <li>
+              <img loading="lazy" src="assets/img/st-in2.jpg" alt="" data-i18n-alt="capEntryBarrier" width="800" height="600">
+              <div><h4 data-i18n="in2Title">Press the button and take a card</h4><p data-i18n="in2Text">The barrier opens and you can drive in.</p></div>
+            </li>
+            <li>
+              <img loading="lazy" src="assets/img/st-in3.jpg" alt="" data-i18n-alt="capPark" width="800" height="600">
+              <div><h4 data-i18n="in3Title">Keep your card and park as you like</h4><p data-i18n="in3Text">Choose any bay and keep to 5 km/h. You will need the card to leave.</p></div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="leg">
+          <h3 class="leg-title"><span>2</span><span data-i18n="legPay">Pay from your phone</span></h3>
+          <div class="pay">
+            <div class="phone" aria-hidden="true">
+              <div class="phone-screen">
+                <p class="ussd-code">*215*<em data-i18n="ussdCard">card no.</em>#</p>
+                <div class="ussd-box">
+                  <p data-i18n="ussdAmount">Amount due: $1.00</p>
+                  <p class="ussd-opt">1. <span data-i18n="ussdAccept">Accept</span></p>
+                  <p class="ussd-opt">2. <span data-i18n="ussdCancel">Cancel</span></p>
+                </div>
+                <p class="ussd-pin" data-i18n="ussdPin">Enter PIN ••••</p>
+              </div>
+            </div>
+            <ol class="pay-steps">
+              <li data-i18n="pay1">Before you drive to the exit, dial *215*, your card number and #.</li>
+              <li data-i18n="pay2">You will see the amount for the time you parked. Accept to pay.</li>
+              <li data-i18n="pay3">Enter your PIN. Once the payment succeeds you are ready to exit.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="leg">
+          <h3 class="leg-title"><span>3</span><span data-i18n="legOut">Leaving</span></h3>
+          <ol class="steps">
+            <li>
+              <img loading="lazy" src="assets/img/st-out1.jpg" alt="" data-i18n-alt="capExitDispenser" width="800" height="600">
+              <div><h4 data-i18n="out1Title">Slow down at the exit dispenser</h4><p data-i18n="out1Text">Follow the orange Exit Only sign and insert your card.</p></div>
+            </li>
+            <li>
+              <img loading="lazy" src="assets/img/st-out2.jpg" alt="" data-i18n-alt="capExitBarrier" width="800" height="600">
+              <div><h4 data-i18n="out2Title">The barrier opens. Drive out.</h4><p data-i18n="out2Text">Safe travels. See you next time.</p></div>
+            </li>
+          </ol>
+          <figure class="reel">
+            <div class="reel-frame">
+              <video id="reelVideo" controls playsinline preload="none" src="assets/video/how-to.mp4"></video>
+            </div>
+            <figcaption data-i18n="reelCaption">Watch: how to use the parking system.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="help-strip">
+        <figure class="lanes">
+          <img loading="lazy" src="assets/img/lanes.jpg" alt="" data-i18n-alt="capLanesAerial" width="960" height="720">
+          <figcaption data-i18n="lanesCaption">Two lanes in and two lanes out, each with its own barrier.</figcaption>
+        </figure>
+        <div class="help-cards">
+          <div class="help-card">
+            <h3 data-i18n="helpTitle">Any problem at the exit?</h3>
+            <p data-i18n="helpText">Stop at the barrier. Our team will sort it out on the spot, or come to our office as you leave.</p>
+          </div>
+          <div class="help-card help-card-dark">
+            <h3 data-i18n="vipTitle">Monthly and VIP parking</h3>
+            <p data-i18n="vipText">Call or WhatsApp our parking line, or visit our office at the entry area to set up a monthly or VIP account.</p>
+            <a class="btn btn-primary" href="https://wa.me/252617757959?text=Hello%20Darmad%2C%20I%20would%20like%20a%20monthly%20parking%20plan." target="_blank" rel="noopener">+252 61 775 7959</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section customers" id="customers">
+    <div class="wrap">
+      <div class="customers-top">
+        <header class="section-head customers-head">
+          <p class="kicker" data-i18n="custKicker">In good company</p>
+          <h2 data-i18n="custTitle">Where Mogadishu's leading brands already do business.</h2>
+          <p data-i18n="custLead">Banks, telecoms, hotels and traders have chosen Darmad. Join them.</p>
+        </header>
+        <div class="customers-photos">
+          <figure class="customers-photo"><img loading="lazy" src="assets/img/banks-angle.jpg" alt="" data-i18n-alt="capBanksAngle" width="1600" height="776"></figure>
+          <figure class="customers-photo"><img loading="lazy" src="assets/img/customers-row.jpg" alt="" data-i18n-alt="capCustomersRow" width="960" height="720"></figure>
+        </div>
+      </div>
+      <ul class="logos">
+        <li><img loading="lazy" src="assets/img/logos/hormuud.jpg" alt="Hormuud Telecom" width="480" height="210"></li>
+        <li><img loading="lazy" src="assets/img/logos/beydan.jpg" alt="Beydan" width="480" height="192"></li>
+        <li><img loading="lazy" src="assets/img/logos/amana.jpg" alt="Amana Bank" width="480" height="222"></li>
+        <li><img loading="lazy" src="assets/img/logos/amal.jpg" alt="Amal Bank" width="480" height="212"></li>
+        <li><img loading="lazy" src="assets/img/logos/premier.png" alt="Premier Bank" width="118" height="71"></li>
+        <li><img loading="lazy" src="assets/img/logos/mybank.jpg" alt="MyBank" width="480" height="240"></li>
+        <li><img loading="lazy" src="assets/img/logos/agro.png" alt="Agro Bank" width="654" height="417"></li>
+        <li><img loading="lazy" src="assets/img/logos/somnet.jpg" alt="Somnet Telecom" width="480" height="308"></li>
+        <li><img loading="lazy" src="assets/img/logos/onegroup.jpg" alt="One Group" width="360" height="276"></li>
+        <li><img loading="lazy" src="assets/img/logos/dahabshiil.png" alt="Dahabshil Bank International" width="653" height="173"></li>
+        <li class="logo-dark"><img loading="lazy" src="assets/img/logos/bbbank.png" alt="BB Bank (Bushra Business Bank)" width="203" height="53"></li>
+        <li><img loading="lazy" src="assets/img/logos/salaam.png" alt="Salaam Somali Bank" width="1226" height="359"></li>
+        <li class="logo-word"><span class="lw-name">MM</span><span class="lw-kind">Smart Tech</span></li>
+        <li class="logo-word logo-word-hotel"><span class="lw-name">Samira Soomal</span><span class="lw-kind">Hotel</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="shuttle" id="shuttle">
+    <div class="wrap shuttle-grid">
+      <div class="shuttle-media">
+        <figure class="sm-main">
+          <img loading="lazy" src="assets/img/tr-shuttles.jpg" alt="" data-i18n-alt="capShuttleFleet" width="1400" height="560">
+          <figcaption data-i18n="capShuttleFleetShort">Electric shuttles</figcaption>
+        </figure>
+        <figure class="sm-side">
+          <img loading="lazy" src="assets/img/tr-trolleys.jpg" alt="" data-i18n-alt="capTrolleys" width="1400" height="413">
+          <figcaption data-i18n="capTrolleysShort">Luggage trolleys</figcaption>
+        </figure>
+        <figure class="sm-side">
+          <img loading="lazy" src="assets/img/shuttles-wide.jpg" alt="" data-i18n-alt="capShuttleWide" width="1400" height="933">
+          <figcaption data-i18n="capShuttleReady">Ready at the office</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p class="kicker kicker-light" data-i18n="shuttleKicker">Shuttles and trolleys</p>
+        <h2 data-i18n="shuttleTitle">From your car to the terminal, bags and all.</h2>
+        <p data-i18n="shuttleLead">Quiet electric shuttles carry you between the car park and the Terminal Tunnel, and luggage trolleys wait to take your bags from the terminal straight to your car. Everything is ready before you land.</p>
+        <ol class="route" aria-label="Shuttle route">
+          <li><span class="dot"></span><span data-i18n="routePark">Your car at Darmad</span></li>
+          <li class="route-shuttle"><span class="dot"></span><span data-i18n="routeShuttle">Electric shuttle, both ways</span></li>
+          <li><span class="dot"></span><span><span data-i18n="routeTunnel">Terminal Tunnel</span> <em data-i18n="soonSmall">coming soon</em></span></li>
+          <li><span class="dot"></span><span data-i18n="routeTerminal">Airport terminal</span></li>
+        </ol>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section gallery-section" id="photos">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="kicker" data-i18n="photosKicker">Photos</p>
+        <h2 data-i18n="photosTitle">See it before you arrive.</h2>
+        <p data-i18n="photosLead">From the gates to the shopfronts. Tap any photo to enlarge it.</p>
+      </header>
+    </div>
+    <div class="marquee" id="marquee">
+      <div class="track" id="gallery">
+        <button class="g" type="button" data-full="assets/img/ga1.jpg"><img loading="lazy" src="assets/img/ga1-t.jpg" alt="" data-i18n-alt="capGa1" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chArrive"></span><span class="g-t" data-i18n="capGa1"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/ga2.jpg"><img loading="lazy" src="assets/img/ga2-t.jpg" alt="" data-i18n-alt="capGa2" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chArrive"></span><span class="g-t" data-i18n="capGa2"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/ga3.jpg"><img loading="lazy" src="assets/img/ga3-t.jpg" alt="" data-i18n-alt="capGa3" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chArrive"></span><span class="g-t" data-i18n="capGa3"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/ga4.jpg"><img loading="lazy" src="assets/img/ga4-t.jpg" alt="" data-i18n-alt="capGa4" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chArrive"></span><span class="g-t" data-i18n="capGa4"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/go1.jpg"><img loading="lazy" src="assets/img/go1-t.jpg" alt="" data-i18n-alt="capGo1" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chOffice"></span><span class="g-t" data-i18n="capGo1"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/go2.jpg"><img loading="lazy" src="assets/img/go2-t.jpg" alt="" data-i18n-alt="capGo2" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chOffice"></span><span class="g-t" data-i18n="capGo2"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/go3.jpg"><img loading="lazy" src="assets/img/go3-t.jpg" alt="" data-i18n-alt="capGo3" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chOffice"></span><span class="g-t" data-i18n="capGo3"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/go4.jpg"><img loading="lazy" src="assets/img/go4-t.jpg" alt="" data-i18n-alt="capGo4" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chOffice"></span><span class="g-t" data-i18n="capGo4"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gb1.jpg"><img loading="lazy" src="assets/img/gb1-t.jpg" alt="" data-i18n-alt="capGb1" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chShops"></span><span class="g-t" data-i18n="capGb1"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gb2.jpg"><img loading="lazy" src="assets/img/gb2-t.jpg" alt="" data-i18n-alt="capGb2" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chShops"></span><span class="g-t" data-i18n="capGb2"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gb3.jpg"><img loading="lazy" src="assets/img/gb3-t.jpg" alt="" data-i18n-alt="capGb3" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chShops"></span><span class="g-t" data-i18n="capGb3"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gb4.jpg"><img loading="lazy" src="assets/img/gb4-t.jpg" alt="" data-i18n-alt="capGb4" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chShops"></span><span class="g-t" data-i18n="capGb4"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gp1.jpg"><img loading="lazy" src="assets/img/gp1-t.jpg" alt="" data-i18n-alt="capGp1" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chPark"></span><span class="g-t" data-i18n="capGp1"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gp2.jpg"><img loading="lazy" src="assets/img/gp2-t.jpg" alt="" data-i18n-alt="capGp2" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chPark"></span><span class="g-t" data-i18n="capGp2"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gp3.jpg"><img loading="lazy" src="assets/img/gp3-t.jpg" alt="" data-i18n-alt="capGp3" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chPark"></span><span class="g-t" data-i18n="capGp3"></span></span></button>
+        <button class="g" type="button" data-full="assets/img/gp4.jpg"><img loading="lazy" src="assets/img/gp4-t.jpg" alt="" data-i18n-alt="capGp4" width="720" height="540"><span class="g-cap"><span class="g-n" data-i18n="chPark"></span><span class="g-t" data-i18n="capGp4"></span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="tunnel-section" id="tunnel">
+    <div class="wrap tunnel">
+      <div class="tunnel-copy">
+        <p class="pill" data-i18n="soon">Coming soon</p>
+        <h2 data-i18n="tunnelTitle">The Darmad Terminal Tunnel</h2>
+        <p data-i18n="tunnelLead">A covered link from Darmad straight to the airport terminal, now past the planning stage.</p>
+      </div>
+      <figure class="tunnel-media">
+        <video id="tunnelClip" muted playsinline preload="none" poster="assets/concept/tunnel.jpg" src="assets/video/tunnel.mp4"></video>
+        <figcaption data-i18n="tunnelCaption">Concept preview. The final design may differ.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="kicker kicker-light" data-i18n="contactKicker">Contact us</p>
+        <h2 data-i18n="contactTitle">We're here to help.</h2>
+        <p class="contact-lead" data-i18n="contactLead">Questions about parking, monthly or VIP accounts, or space for your business? Get in touch with Team Darmad.</p>
+        <div class="channels">
+          <div class="channel line">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+            <span><strong data-i18n="lineParking">Darmad Park Hotline</strong><span class="line-num">+252 61 775 7959</span><span class="line-for" data-i18n="lineParkingFor">Prices, monthly plans and any parking issue</span></span>
+            <span class="line-acts"><a href="tel:+252617757959" data-i18n="callShort">Call</a><a class="wa" href="https://wa.me/252617757959" target="_blank" rel="noopener">WhatsApp</a></span>
+          </div>
+          <div class="channel line">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+            <span><strong data-i18n="lineSpaces">Darmad Business Hotline</strong><span class="line-num">+252 77 200 0060</span><span class="line-for" data-i18n="lineSpacesFor">Renting a unit and all other Darmad services</span></span>
+            <span class="line-acts"><a href="tel:+252772000060" data-i18n="callShort">Call</a><a class="wa" href="https://wa.me/252772000060" target="_blank" rel="noopener">WhatsApp</a></span>
+          </div>
+          <a class="channel channel-fb" href="https://www.facebook.com/people/Darmad-Business-Park/61586034085024/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4a22 22 0 0 0-2.4-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.6V14h2.7v8z" fill="currentColor"/></svg>
+            <span><strong>Facebook</strong><span data-i18n="fbText">Follow Darmad Business Park</span></span>
+          </a>
+          <a class="channel" href="mailto:admin@darmad.so?subject=Darmad%20Business%20Park%20enquiry">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H4v.6l8 5.4 8-5.4V7h-.4z" fill="currentColor"/></svg>
+            <span><strong data-i18n="emailUs">Email us</strong><span>admin@darmad.so</span></span>
+          </a>
+        </div>
+        <div class="visit">
+          <h3 data-i18n="visitTitle">Visit us</h3>
+          <address>
+            <span data-i18n="visitText">Management office at the entry area of Darmad Business Park, Aden Adde International Airport, Mogadishu, Somalia.</span>
+          </address>
+          <a class="btn btn-primary js-directions" href="#" target="_blank" rel="noopener" data-i18n="directions">Get directions</a>
+        </div>
+      </div>
+      <div class="contact-media">
+        <figure class="team">
+          <img loading="lazy" src="assets/img/team.jpg" alt="" data-i18n-alt="capTeam" width="720" height="522">
+          <figcaption><strong>Team Darmad</strong><span data-i18n="teamCaption">Your parking operators and customer care team.</span></figcaption>
+        </figure>
+        <figure class="aerial">
+          <img loading="lazy" src="assets/img/location-aerial.jpg" alt="" data-i18n-alt="capParkAerial" width="960" height="720">
+          <figcaption data-i18n="aerialCaption">Darmad car park today.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img src="assets/brand/logo-light.png" alt="Darmad Business Park" width="760" height="186" loading="lazy">
+      <p data-i18n="footer">Secure airport parking and a full-service business destination at Aden Adde International Airport, Mogadishu.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#tour" data-i18n="navTour">Tour</a>
+      <a href="#spaces" data-i18n="navSpaces">Spaces to let</a>
+      <a href="#prices" data-i18n="navPrices">Parking</a>
+      <a href="#how" data-i18n="navHow">How it works</a>
+      <a href="#customers" data-i18n="navCustomers">Businesses</a>
+      <a href="#photos" data-i18n="navPhotos">Photos</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+252617757959"><span data-i18n="footParking">Parking</span>: +252 61 775 7959</a>
+      <a href="tel:+252772000060"><span data-i18n="footSpaces">Shops &amp; offices</span>: +252 77 200 0060</a>
+      <a href="mailto:admin@darmad.so">admin@darmad.so</a>
+      <span>darmad.so</span>
+    </div>
+  </div>
+  <p class="wrap footer-small">&copy; <span id="year">2026</span> Darmad Business Park</p>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <img id="lbImg" alt="">
+  <p class="lb-caption" id="lbCaption"></p>
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&times;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+</dialog>
+</body>
+</html>
