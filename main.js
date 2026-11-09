@@ -335,11 +335,8 @@ function sizeHalo() {
   const z = map.getZoom();
   const d = (512 * 2 ** z) / Math.PI;
   const halo = $('#halo');
-  // Keep it no bigger than the screen: a huge glow makes phone browsers zoom and shift the whole page.
-  const a = clamp01((3.2 - z) / 1.6);
-  halo.style.setProperty('--d', `${Math.min(d, Math.max(innerWidth, innerHeight) * 1.2)}px`);
-  halo.style.opacity = String(a);
-  halo.style.display = a > 0 ? '' : 'none';
+  halo.style.setProperty('--d', `${Math.min(d, 6000)}px`);
+  halo.style.opacity = String(clamp01((3.2 - z) / 1.6));
 }
 
 function spin() {

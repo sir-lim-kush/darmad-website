@@ -98,7 +98,7 @@ figure { margin: 0; }
 .hero { position: relative; min-height: 100svh; background: var(--ink) url('assets/img/hero-poster.jpg') center / cover no-repeat; color: var(--on-dark); overflow: hidden; display: flex; }
 .js .hero { background-image: none; }
 .hero-stage {
-  position: absolute; inset: 0 0 auto 0; height: 100svh; overflow: hidden;
+  position: absolute; inset: 0 0 auto 0; height: 100svh;
   background: radial-gradient(120% 90% at 50% 52%, #2b160b 0%, #110906 46%, #050302 100%);
 }
 html:not(.intro) .hero-stage { height: 100%; }
