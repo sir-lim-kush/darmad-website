@@ -84,7 +84,7 @@ const I18N = {
     shuttleKicker: 'Gaadiid koronto', shuttleTitle: 'Gaarigaaga ilaa terminalka, iyo dib.',
     shuttleLead: 'Gaadiidkayaga korontada ee aamusan ayaa baarkinka ku xira Tunnel-ka Terminalka: kaxeyn ilaa tunnel-ka markaad duulayso, iyo kaxeyn dib ugu celisa gaarigaaga markaad soo degto.',
     routePark: 'Gaarigaaga oo Darmad yaal', routeShuttle: 'Gaadiid koronto, labada dhinac', routeTunnel: 'Tunnel-ka Terminalka', soonSmall: 'dhawaan', routeTerminal: 'Terminalka garoonka',
-    soon: 'Dhawaan', tunnelTitle: 'Tunnel-ka Terminalka Darmad',
+    soon: 'Dhawaan Filo', tunnelTitle: 'Tunnel-ka Terminalka Darmad',
     tunnelLead: 'Isku xir dabooleysan oo Darmad si toos ah ugu xira terminalka garoonka, oo hadda dhaafay marxaladda qorsheynta.',
     tunnelCaption: 'Muuqaal naqshadeed. Naqshadda ugu dambeysa way kala duwanaan kartaa.',
     photosKicker: 'Sawirro', photosTitle: 'Arag ka hor intaadan iman.', photosLead: 'Laga bilaabo albaabka ilaa dukaamada. Taabo sawir kasta si aad u weyneyso.',
@@ -139,14 +139,86 @@ const I18N = {
     vipText: 'Wac ama WhatsApp u dir khadka baarkinka, ama booqo xafiiskayaga aagga gelitaanka si aad u furato akoon bille ah ama VIP ah.',
     capShuttleFleet: 'Gaadiid koronto iyo gaariyo shandadaha oo safan xafiiska maamulka Darmad hortiisa',
     capShuttleFleetShort: 'Gaadiid koronto', capTrolleys: 'Saf gaariyo shandadaha cusub oo dukaamada hortooda ah',
-    capTrolleysShort: 'Gaariyo shandadaha', capShuttleReady: 'Diyaar xafiiska agtiisa',
+    capTrolleysShort: 'Gaari-gacmeedyada Shandadaha', capShuttleReady: 'Marwaliba kuu diyaar ah',
     shuttleKicker: 'Gaadiid iyo gaariyo shandado', shuttleTitle: 'Gaarigaaga ilaa terminalka, shandadaha iyo dhammaan.',
     shuttleLead: 'Gaadiid koronto oo aamusan ayaa kugu qaada baarkinka iyo Tunnel-ka Terminalka, gaariyo shandadahana waxay diyaar u yihiin inay shandadahaaga ka soo qaadaan terminalka ilaa gaarigaaga. Wax walba waa diyaar ka hor intaadan soo degin.',
-    lineParking: 'Darmad Park Hotline', lineParkingFor: 'Qiimaha, qorshayaasha bilaha ah iyo dhibaato kasta oo baarkin',
+    lineParking: 'Darmad Park Hotline', lineParkingFor: 'Qiimaha, Qorshayaasha Lacag-bixinta Billaha ah iyo Wixii Kale ee la Xiriira Baarkinka.',
     lineSpaces: 'Darmad Business Hotline', lineSpacesFor: 'Kiraynta qayb iyo dhammaan adeegyada kale ee Darmad',
     callShort: 'Wac', footParking: 'Baarkin', footSpaces: 'Dukaamo iyo xafiisyo',
   },
 };
+
+// Wording approved by Darmad (November 2026). These replace any earlier Somali for the same keys.
+Object.assign(I18N.so, {
+  directions: 'Hel Jihooyinka',
+  heroTitle: 'Dhigo gaarigaaga, ku shaqeyso, kuna kobci ganacsigaada albaabka hore ee Garoonka Diyaaradaha.',
+  heroLead: 'Gaarigaaga dhig, shaqadaada qabso, wax soo iibso ama safar adigoo niyadda ku haya in gaarigaagu ammaan yahay. Darmad Business Park waxay kuu fududaynaysaa baarkin ammaan ah oo sahlan.',
+  chipDay: '24kii saacba',
+  chipMonth: 'bishiiba',
+  bookParking: 'Hore u Qabso Baarkinka',
+  learnMore: 'Wax Dheeraad ah Baro',
+  factSpaces: 'Goobaha Baarkinka',
+  factCctv: 'Kormeer Kaamiro 24/7 ah',
+  factLanesTitle: '2 Galid iyo 2 Bixid',
+  factLanes: 'Saf cariiri ah kama jiro',
+  factLetTitle: 'Kiro',
+  factLet: 'Goobo Ganacsi oo Kiro ah',
+  spacesKicker: 'Goobaha ganacsiga',
+  spacesTitle: 'Goobtaada Ganacsi ee Xigta Waa Diyaar.',
+  spacesLead: 'Ma raadineysaa meel aad ganacsigaaga ku kobciso? Darmad Business Park waxay kuu haysaa goobo ganacsi oo casri ah, kuna yaalla garoonka diyaaradaha.',
+  usesTitle: 'Noocyada Goobaha',
+  useRetail: 'Dukaamo',
+  useOffice: 'Xafiisyo',
+  useCafe: 'Maqaayado',
+  useMarket: 'Suuqyo waaweyn',
+  useClinic: 'Rugaha Caafimaadka',
+  useShowroom: 'Goobo Bandhig',
+  useStore: 'Bakhaarro',
+  useSpace: 'Goobo Ganacsi',
+  bookViewing: 'Qabso Booqasho',
+  callUs: 'Na Soo Wac',
+  emailUs: 'Email Noo Soo Dir',
+  pricesKicker: 'Qiimaha baarkinka',
+  pricesTitle: 'Qiimo Fudud. Ammaan La Isku Halayn Karo.',
+  pricesLead: 'Baarkin qiimo jaban leh iyo ammaan aad ku kalsoonaan karto.',
+  singleTitle: 'Hal Mar oo Gelid ah',
+  singleUnit: '24 saac',
+  singleText: 'Gaarigaaga dhig muddo dhan ilaa 24 saacadood.',
+  monthlyTitle: 'Baarkin Bille ah',
+  monthlyText: 'Bil kasta hal mar bixi lacagta, kuna raaxayso baarkin kuu diyaar ah maalin kasta.',
+  perkGuardTitle: 'Baarkin Ilaalo Leh',
+  perkCctvTitle: 'Kaamirooyin Amni oo Shaqeeya 24/7',
+  perkEasyTitle: 'Goob Si Fudud Loo Gaari Karo',
+  howKicker: 'Sida baarkinku u shaqeeyo',
+  howTitle: 'Kaarka Qaado. Taleefankaaga Ku Bixi. Kaarka Ku Bax.',
+  howLead: 'Baarkinku waa sahlan yahay. Kaarkaaga ka qaado meesha laga soo galo, gaariga dhig muddada aad u baahato, kadibna lacagta kaga bixi taleefankaaga ka hor intaadan bixin.',
+  legIn: 'Kaarka Qaado',
+  legPay: 'Ku Bixi Taleefanka',
+  legOut: 'Kaarka Ku Bax',
+  helpTitle: 'Ma u baahan tahay caawimaad markaad baxayso?',
+  helpText: 'Shaqaalaheennu waxay diyaar u yihiin inay ku caawiyaan.',
+  vipTitle: 'Waxaa la heli karaa Baarkin Bille ah iyo Baarkin VIP ah.',
+  custKicker: 'Deriskeenna',
+  custTitle: 'Waxay Ku Dhowdahay Ganacsiyada Waaweyn ee Muqdisho.',
+  custLead: 'Darmad Business Park waxay ku dhowdahay bangiyo, dukaamo, xafiisyo iyo ganacsiyo kale oo muhiim ah. Waxyaabaha aad u baahan tahay dhammaantood waa kuu dhow yihiin.',
+  shuttleKicker: 'Basas iyo gaariyo alaab',
+  shuttleTitle: 'Gaarigaaga Ilaa Terminalka, Alaabtaadana Wada Qaado.',
+  shuttleLead: 'Alaab badan ma sidataa? Adeegga basaska Darmad wuxuu kuu fududaynayaa inaad baarkinka uga gudubto terminalka garoonka diyaaradaha.',
+  shuttle1: 'Adeeg basas qaada rakaabka.',
+  shuttle2: 'Caawimaad qaadista alaabtaada.',
+  shuttle3: 'Si fudud ku gaar terminalka.',
+  shuttle4: 'Ku habboon dadka safarka ah.',
+  photosLead: 'Hore u eeg goobta baarkinka, meelaha laga soo galo iyo amniga ka hor intaadan na soo booqan. Taabo sawir kasta si aad u weyneyso.',
+  photosTitle: 'Arag Ka Hor Intaadan Imaan.',
+  tunnelLead: 'Waddo isku xiraysa goobta baarkinka iyo terminalka garoonka diyaaradaha, si safarkaagu kuugu fududaado markaad timaaddo.',
+  contactTitle: 'Waan Ku Caawinaynaa.',
+  contactLead: 'Ma qabtaa su\'aalo ku saabsan baarkinka, lacagaha bille ah ama goobaha ganacsiga? Nala soo xiriir. Shaqaalaheennu waxay diyaar u yihiin inay ku caawiyaan.',
+  callShort: 'Wac',
+  visitTitle: 'Na Soo Booqo',
+  footer: 'Goobtaada lagu kalsoon yahay ee baarkinka iyo ganacsiga, kuna taalla agagaarka garoonka diyaaradaha.',
+  capPoster: 'Dalabka baarkinka garoonka: $1 24kii saac, $30 bishii',
+});
+I18N.en.capPoster = 'Airport parking offer: $1 for 24 hours, $30 a month';
 
 // English copy lives in the HTML; remember it so the toggle can switch back (captions filled from JS keep theirs).
 $$('[data-i18n]').forEach((el) => { if (el.textContent.trim()) I18N.en[el.dataset.i18n] = el.textContent; });
@@ -154,6 +226,9 @@ $$('[data-i18n]').forEach((el) => { if (el.textContent.trim()) I18N.en[el.datase
 // Somali is the default; a visitor who switches to English keeps it on their next visit.
 let lang = 'so';
 try { if (localStorage.getItem('darmad-lang') === 'en') lang = 'en'; } catch (e) { /* storage blocked */ }
+// A link can choose the language: ?lang=en or ?lang=so
+const langParam = new URLSearchParams(location.search).get('lang');
+if (langParam === 'en' || langParam === 'so') lang = langParam;
 const t = (key) => (I18N[lang] && I18N[lang][key]) || I18N.en[key] || '';
 
 function applyLang() {
@@ -167,6 +242,8 @@ function applyLang() {
 
 // ---- Tour video ----
 const tour = $('#tourVideo');
+// Laptops and desktops get the 60 fps tour (its slow photo zooms glide); phones keep the lighter 30 fps file.
+if (matchMedia('(min-width: 1100px)').matches) tour.src = 'assets/video/tour60.mp4';
 const sound = $('#sound');
 function updateSoundLabel() {
   $('#soundLabel').textContent = t(tour.muted ? 'soundOn' : 'soundOff');
@@ -247,6 +324,37 @@ function reveal() {
   document.documentElement.classList.remove('intro');
   if (map) { map.resize(); collapseAttribution(map); }
   startTour();
+  setTimeout(freezeMap, 1500);
+}
+
+// Once the flight is over the map never moves again, but a live 3D map still costs the browser work
+// behind the playing tour (that is what made the tour stutter). Swap it for a still picture of itself.
+function freezeMap() {
+  const m = map;
+  if (!m) return;
+  const snap = () => {
+    m.once('render', () => {
+      let url = '';
+      try { url = m.getCanvas().toDataURL('image/jpeg', 0.88); } catch (e) { return; } // keep the live map
+      if (url.length < 20000) return; // nothing drawn yet: keep the live map
+      const img = new Image();
+      img.className = 'globe-still';
+      img.alt = '';
+      img.src = url;
+      img.decode().then(() => {
+        if (map !== m) return;
+        const credit = document.createElement('div');
+        credit.className = 'globe-credit';
+        credit.innerHTML = ATTRIBUTION;
+        $('#globe').after(img, credit);
+        m.remove();
+        map = null;
+        flag = null;
+      }).catch(() => {});
+    });
+    m.triggerRepaint();
+  };
+  if (m.loaded()) snap(); else m.once('idle', snap);
 }
 
 function skipIntro() {
@@ -339,11 +447,15 @@ function sizeHalo() {
   halo.style.opacity = String(clamp01((3.2 - z) / 1.6));
 }
 
+// The globe fills about 75% of the short screen edge. The map is created at exactly this view,
+// so the tiles it waits for are the ones the first spin frame shows.
+const spinStartZoom = () => Math.max(0.3, Math.log2(Math.min(innerWidth, innerHeight) * 0.0046));
+const SPIN_START_LAT = 12;
+
 function spin() {
-  // Fills about 75% of the short screen edge.
-  const startZoom = Math.max(0.3, Math.log2(Math.min(innerWidth, innerHeight) * 0.0046));
+  const startZoom = spinStartZoom();
   const endLon = CONFIG.site[0];
-  const startLat = 12;
+  const startLat = SPIN_START_LAT;
   const endLat = CONFIG.site[1] + 4;
   const started = performance.now();
   map.jumpTo({ center: [endLon, startLat], zoom: startZoom - 0.35, pitch: 0, bearing: 0 });
@@ -363,6 +475,8 @@ function spin() {
 }
 
 function dive() {
+  // Start buffering the tour now, so it plays smoothly the moment the page is revealed.
+  if (!saveData && tour.preload !== 'auto') tour.preload = 'auto';
   // A steady, even zoom reads as smooth flight; the centre settles on the flag early so the last levels never drift.
   const from = map.getCenter();
   const z0 = map.getZoom();
@@ -431,15 +545,17 @@ function whenVisible(fn) {
 function startIntro() {
   drawStars();
   if (!canUseGlobe()) { whenVisible(fallbackIntro); return; }
-  preloadFlightTiles();
 
   let started = false;
+  let styleReady = false; // the map itself works; tiles may still be arriving
   let loadTimer = 0;
+  let softTimer = 0;
+  // Open on the exact first frame of the spin, so the tiles loaded now are the ones shown first.
   map = new maplibregl.Map({
     container: 'globe',
     style: satelliteStyle(true),
-    center: [CONFIG.site[0], 12],
-    zoom: 1,
+    center: [CONFIG.site[0], SPIN_START_LAT],
+    zoom: spinStartZoom() - 0.35,
     interactive: false,
     fadeDuration: 0,
     attributionControl: { compact: true },
@@ -451,22 +567,31 @@ function startIntro() {
     if (started || revealed) return;
     started = true;
     clearTimeout(loadTimer);
+    clearTimeout(softTimer);
     collapseAttribution(map);
-    introStart = performance.now();
-    spin();
+    introStart = performance.now();    spin();
+    // Only now fetch the tiles for the dive: the spin gives them ~5 s, and they no longer
+    // compete with the globe's own first tiles (that competition caused the pause before spinning).
+    preloadFlightTiles();
   };
-  // A failed tile is harmless; only a map that cannot start at all needs the backup video.
+  // A failed or slow tile is harmless. Only a map that never got going at all needs the backup video,
+  // and once the globe is working it is never swapped for the video (that swap caused the black screen
+  // and the flag-less old flight: isStyleLoaded() is also false while tiles are still downloading).
+  map.once('style.load', () => { styleReady = true; });
   map.on('error', (e) => {
-    if (e && e.sourceId) return;
-    if (!started && !map.isStyleLoaded()) { clearTimeout(loadTimer); fallbackIntro(); }
+    if ((e && e.sourceId) || started || styleReady || revealed) return;
+    clearTimeout(loadTimer); clearTimeout(softTimer); fallbackIntro();
   });
   whenVisible(() => {
     if (!document.documentElement.classList.contains('intro')) { skipIntro(); return; }
-    // Start once the globe has painted, but never keep a slow connection waiting.
-    if (map.loaded()) begin(); else map.once('idle', begin);
     loadTimer = setTimeout(() => {
-      if (map.isStyleLoaded()) begin(); else fallbackIntro();
-    }, 7000);
+      if (started || revealed) return;
+      if (styleReady) begin(); else fallbackIntro();
+    }, 8000);
+    // Start as soon as every globe tile is in, or 2.5 s after the map is up, so a slow tile never holds it still.
+    map.once('idle', begin);
+    const soon = () => { softTimer = setTimeout(begin, 2500); };
+    if (styleReady) soon(); else map.once('style.load', soon);
     failsafe = setTimeout(reveal, 34000);
   });
 }
@@ -590,7 +715,7 @@ if (location.hash || matchMedia('(prefers-reduced-motion: reduce)').matches) {
   if (canUseGlobe()) {
     map = new maplibregl.Map({ container: 'globe', style: satelliteStyle(false), ...SITE_VIEW, interactive: false, attributionControl: { compact: true } });
     addFlag();
-    map.once('idle', () => collapseAttribution(map));
+    map.once('idle', () => { collapseAttribution(map); freezeMap(); });
   }
   $('#halo').style.opacity = '0';
   revealed = true;
